@@ -503,7 +503,8 @@ export class PartyTracks {
             subscriber.error(new Error("Missing Track Info"));
           }
           return trackMetadata.trackName;
-        });
+        })
+        .catch((err) => subscriber.error(err));
     }).pipe(retryWithBackoff());
   }
 
